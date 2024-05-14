@@ -1,0 +1,9 @@
+figure > img {
+    width: 20vw;
+    height: auto;
+    border-radius: 20px;
+}
+
+figcaption {
+    font-size: xx-large;
+}

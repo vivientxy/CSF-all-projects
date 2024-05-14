@@ -1,0 +1,5 @@
+<figure>
+    <img [src]="imageUrl" (click)="imageClicked($event)">
+    <figcaption>{{ imageCaption | titlecase }} ({{counter}})</figcaption>
+    <!-- <figcaption [innerText]="imageCaption"></figcaption> -->
+</figure>

@@ -1,0 +1,23 @@
+<h1>Yet Another Shopping Cart</h1>
+
+<div id="container">
+
+  <div id="left">
+    <h2>Inventory</h2>
+    <app-inventory
+        *ngFor="let i of imgs"
+        [imageUrl]="i"
+        (onFigureClicked)="handleClick($event)"
+    ></app-inventory>
+  </div>
+
+  <div id="right">
+    <h2>Cart</h2>
+    <app-cart
+      *ngFor="let f of fruits, let idx = index"
+      [fruitName]="f"
+      [idx]="idx + 1"
+    ></app-cart>
+  </div>
+
+</div>

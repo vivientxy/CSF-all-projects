@@ -1,0 +1,34 @@
+<h1>Hello World!</h1>
+<h2>{{ title | titlecase }}</h2>
+<h3>{{ title | uppercase }}</h3>
+
+<!-- 
+<app-my-image></app-my-image>
+<app-my-image 
+            imageUrl="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_3x4.jpg" 
+            imageCaption="cutiepie"
+            (onFigureClicked)="handleClick($event)"></app-my-image>
+<app-my-image [imageUrl]="catcat" [imageCaption]="catcatcap"></app-my-image> 
+-->
+
+<!-- older -- using structural directive *ngFor *ngIf -->
+<app-my-image
+        *ngFor="let i of imgs, let idx = index"
+        [imageUrl]="i"
+        [imageCaption]="'Image #' + idx"
+></app-my-image>
+
+<h3 *ngIf="(imgs.length % 2) == 0">You have Even number of pictures</h3>
+<h3 *ngIf="(imgs.length % 2) != 0">You have Odd number of pictures</h3>
+
+<!-- newer -- using @for @if @else -->
+@for (i of imgs; track idx; let idx = $index) {
+    <app-my-image [imageUrl]="i" [imageCaption]="'Image #' + idx"></app-my-image>
+}
+
+@if ((imgs.length % 2) == 0) {
+    <h3>You have Even number of pictures</h3>
+}
+@else {
+    <h3>You have Odd number of pictures</h3>
+}
