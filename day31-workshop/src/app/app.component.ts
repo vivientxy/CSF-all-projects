@@ -20,6 +20,17 @@ export class AppComponent {
       "/assets/fruits/corn.png",
       "/assets/fruits/eggplant.png",
       "/assets/fruits/harold.png",
+      "/assets/fruits/lettuce.png",
+      "/assets/fruits/mushroom.png",
+      "/assets/fruits/onion.png",
+      "/assets/fruits/potato.png",
+      "/assets/fruits/pumpkin.png",
+      "/assets/fruits/radish.png",
+      "/assets/fruits/squash.png",
+      "/assets/fruits/strawberry.png",
+      "/assets/fruits/sugar_snap.png",
+      "/assets/fruits/tomato.png",
+      "/assets/fruits/zucchini.png"
   ]
 
   fruits: string[] = [
@@ -28,6 +39,5 @@ export class AppComponent {
   handleClick(text: string) {
     console.info('>>>> image clicked printed from app', text, new Date())
     this.fruits.push(text)
-    console.info('>>>> ', this.fruits)
   }
 }
