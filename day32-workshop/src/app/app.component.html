@@ -1,0 +1,18 @@
+<div style="margin: 20px;">
+    
+    <h1>ToDo</h1>
+    <app-add-task
+        (outputTask)="addTask($event)"
+    ></app-add-task>
+    
+    <div style="border: 1px black solid; padding: 10px;">
+        <h1>Task</h1>
+        <app-show-tasks
+            *ngFor="let t of tasks"
+            [description]="t.description"
+            [priority]="t.priority"
+            [due]="t.due"
+        ></app-show-tasks>
+    </div>
+    
+</div>

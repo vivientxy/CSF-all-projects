@@ -1,0 +1,9 @@
+<table>
+    <tr>
+        <td colspan="2" id="description">{{ description | titlecase }}</td>
+    </tr>
+    <tr>
+        <td id="priority">{{ priority | titlecase }}</td>
+        <td id="due">{{ due | date:'MMM d' }}</td>
+    </tr>
+</table>
