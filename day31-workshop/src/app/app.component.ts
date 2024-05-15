@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Inventory } from './models';
 
 @Component({
   selector: 'app-root',
@@ -35,9 +36,25 @@ export class AppComponent {
 
   fruits: string[] = [
   ]
-
+  
   handleClick(text: string) {
     console.info('>>>> image clicked printed from app', text, new Date())
     this.fruits.push(text)
   }
+
+  // inventories: Inventory[] = [
+  //   {
+  //     url: '/assets/fruits/harold.png',
+  //     name: 'harold'
+  //   },
+  //   {
+  //     url: '/assets/fruits/tomato.png',
+  //     name: 'tomato'
+  //   },
+  //   {
+  //     url: '/assets/fruits/zucchini.png',
+  //     name: 'zucchini'
+  //   }
+  // ]
+  
 }

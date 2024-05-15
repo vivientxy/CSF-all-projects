@@ -1,0 +1,38 @@
+<div class="container">
+    <form [formGroup]="skillForm" (ngSubmit)="onSubmit()">
+
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" formControlName="name">
+        </div>
+
+        <div class="mb-3">
+            <div class="mb-3">
+                <button type="button" class="btn btn-success" (click)="addSkill()">Add New Skill</button>
+            </div>
+
+            <div class="mb-3">
+                <table>
+                    <tbody formArrayName="skills">
+                        <tr *ngFor="let skill of getSkills().controls; let i = index">
+                            <td [formGroupName]="i"></td>
+                            <td>
+                                Skill: <input type="text" id="skill" formControlName="skillname">
+                            </td>
+                            <td>
+                                Experience: <input type="text" id="experience" formControlName="experience">
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-secondary" (click)="removeSkill(i)">Remove</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>    
+            </div>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="skillForm.invalid">Submit</button>
+
+    </form>
+</div>
