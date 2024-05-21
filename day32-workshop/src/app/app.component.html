@@ -8,10 +8,12 @@
     <div style="border: 1px black solid; padding: 10px;">
         <h1>Task</h1>
         <app-show-tasks
-            *ngFor="let t of tasks"
+            *ngFor="let t of tasks, let idx = index"
             [description]="t.description"
             [priority]="t.priority"
             [due]="t.due"
+            (edit)="editTask(idx, t)"
+            (delete)="deleteTask(idx)"
         ></app-show-tasks>
     </div>
     

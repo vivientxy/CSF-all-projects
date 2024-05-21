@@ -1,5 +1,5 @@
 <div class="mb-3">
-    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()" (startEdit)="showEditTask($event)">
         <table>
             <tr>
                 <th>Description:</th>

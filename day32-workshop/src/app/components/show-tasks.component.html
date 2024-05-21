@@ -1,9 +1,13 @@
 <table>
     <tr>
         <td colspan="2" id="description">{{ description | titlecase }}</td>
+        <td id="completed">Mark As Complete</td>
+        <td rowspan="2" id="button"><button type="button" class="btn btn-primary" (click)="editTask()">Edit</button></td>
+        <td rowspan="2" id="button"><button type="button" class="btn btn-danger" (click)="deleteTask()">Delete</button></td>
     </tr>
     <tr>
         <td id="priority">{{ priority | titlecase }}</td>
         <td id="due">{{ due | date:'MMM d' }}</td>
+        <td id="completed"><input type="checkbox"></td>
     </tr>
 </table>

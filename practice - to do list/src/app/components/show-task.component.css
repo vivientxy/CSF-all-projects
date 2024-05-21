@@ -1,0 +1,31 @@
+table {
+    width: 100%;
+    text-align: center;
+}
+
+.left {
+    font-style: italic;
+    text-align: left;
+    width: 15%;
+}
+
+.right {
+    font-style: italic;
+    text-align: right;
+}
+
+.buttons {
+    width: 8%;
+}
+
+#description {
+    font-size: larger;
+    font-weight: bold;
+    text-align: left;
+    width: 76%;
+    word-wrap: break-word;
+}
+
+[data-status="true"] {
+    text-decoration: line-through;
+}

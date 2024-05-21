@@ -1,0 +1,8 @@
+h1, div {
+    margin: 10px;
+}
+
+.container {
+    border: 1px black solid;
+    padding: 10px;
+}

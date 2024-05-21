@@ -1,0 +1,45 @@
+<form [formGroup]="taskForm" class="form" (ngSubmit)="onSubmit()">
+
+    <div class="error" *ngIf="hasErrors && taskForm.get('description')?.hasError('required')">Description is required</div>
+    <div class="error" *ngIf="hasErrors && taskForm.get('description')?.hasError('minlength')">Description has to be at least 5 characters</div>
+
+    <div>
+        <mat-form-field class="input-field">
+            <mat-label>Task Description</mat-label>
+            <input matInput formControlName="description">
+        </mat-form-field>
+    </div>
+
+    <div class="error" *ngIf="hasErrors && taskForm.get('due')?.hasError('required')">Due Date is required</div>
+    <div class="error" *ngIf="hasErrors && taskForm.get('due')?.hasError('greaterThanToday')">Due Date cannot be a past date</div>
+
+    <div>
+        <mat-form-field class="input-field">
+            <mat-label>Due Date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="due">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+    <div class="error" *ngIf="hasErrors && taskForm.get('priority')?.hasError('required')">Priority is required</div>
+
+    <div>
+        <label>Priority:</label>
+        <mat-radio-group formControlName="priority">
+            <mat-radio-button name="priority" value="low">Low</mat-radio-button>
+            <mat-radio-button name="priority" value="medium">Medium</mat-radio-button>
+            <mat-radio-button name="priority" value="high">High</mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+    <br>
+    <div *ngIf="!editMode">
+        <button mat-flat-button color="primary" type="submit">Add Task</button>
+    </div>
+    <div *ngIf="editMode">
+        <button mat-flat-button color="primary" type="submit">Update Task</button>
+        <button mat-flat-button color="warn" type="button" (click)="cancelUpdate()">Cancel</button>
+    </div>
+
+</form>

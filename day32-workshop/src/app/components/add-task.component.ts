@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { lessThanToday } from '../validations/custom-validation';
 import { Task } from '../model/task';
@@ -29,6 +29,10 @@ export class AddTaskComponent implements OnInit {
   onSubmit() {
     console.log('>>>> ', this.taskForm.value)
     this.outputTask.next(this.taskForm.value as Task)
+  }
+
+  showEditTask(event: any) {
+    console.log('>>> show edit task: ', event)
   }
 
 }

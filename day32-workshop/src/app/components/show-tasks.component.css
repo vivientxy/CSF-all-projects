@@ -22,3 +22,15 @@ table > tr, td {
     text-align: right;
     font-style: italic;
 }
+
+#completed {
+    width: 15%;
+    text-align: center;
+    align-content: center;
+}
+
+#button {
+    width: 5%;
+    text-align: center;
+    align-content: center;
+}

@@ -1,0 +1,21 @@
+<h1>To Do Tasks</h1>
+
+<div class="container">
+    <app-add-task 
+        (taskSubmit)="addTask($event)" 
+        [task]="selectedTask"
+        (cancelEdit)="processCancel()"
+    ></app-add-task>
+
+</div>
+
+<div class="container">
+    <app-show-task 
+        [tasks]="tasks" 
+        (edit)="processEdit($event)"
+        (delete)="processDelete($event)"
+        (complete)="processComplete($event)"
+    ></app-show-task>
+</div>
+
+
