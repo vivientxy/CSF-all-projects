@@ -35,6 +35,7 @@ export class AddTaskComponent implements OnInit, OnChanges {
     })
   }
 
+  // to edit:
   ngOnChanges(changes: SimpleChanges) {
     if (changes['task'] && this.task) {
       // ensure there's a correct number of formArray fields
@@ -54,12 +55,13 @@ export class AddTaskComponent implements OnInit, OnChanges {
         let name : string = this.people.at(index).value;
         if (name.trim().length == 0) {
           this.people.removeAt(index)
-          index --
+          index--
         }
       }
 
       this.taskSubmit.emit(this.taskForm.value);
       this.taskForm.reset();
+      this.people.clear();
       this.editMode = false
       this.hasErrors = false
     } else {
