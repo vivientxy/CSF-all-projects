@@ -11,13 +11,14 @@ export class AppComponent {
   title = 'todolist';
 
   tasks: Task[] = [
-    new Task('hello','low',new Date()), 
-    new Task('konnichiwa','low',new Date())
+    new Task('hello','low',new Date(), [{name:'amy'},{name:'brian'},{name:'cheri'}]), 
+    new Task('konnichiwa','medium',new Date(), [])
   ];
   
   selectedTask: Task | null = null;
 
   addTask(task: Task) {
+    console.log('>>>', task)
     if (this.selectedTask) {
       // Update existing task
       const idx = this.tasks.indexOf(this.selectedTask);

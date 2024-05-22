@@ -1,3 +1,7 @@
+* {
+    /* border: 1px black solid; */
+}
+
 table {
     width: 100%;
     text-align: center;
@@ -6,12 +10,12 @@ table {
 .left {
     font-style: italic;
     text-align: left;
-    width: 15%;
 }
 
 .right {
     font-style: italic;
     text-align: right;
+    width: 10%;
 }
 
 .buttons {
@@ -26,6 +30,7 @@ table {
     word-wrap: break-word;
 }
 
-[data-status="true"] {
+.completed {
+    color: grey;
     text-decoration: line-through;
 }

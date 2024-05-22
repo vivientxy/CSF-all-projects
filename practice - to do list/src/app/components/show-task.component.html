@@ -1,8 +1,7 @@
 <table *ngFor="let task of tasks; let idx = index">
   <tr>
     <td colspan="2" id="description">
-      <span *ngIf="task.completed" data-status="true">{{ task.description | titlecase }}</span>
-      <span *ngIf="!task.completed">{{ task.description | titlecase }}</span>
+      <span [ngClass]="{'completed': task.completed}">{{ task.description | titlecase }}</span>
     </td>
     <td rowspan="2" class="buttons">
       Completed
@@ -26,12 +25,12 @@
   </tr>
   <tr>
     <td class="left">
-      <span *ngIf="task.completed" data-status="true">{{ task.priority | titlecase }}</span>
-      <span *ngIf="!task.completed">{{ task.priority | titlecase }}</span>
+      <span [ngClass]="{'completed': task.completed}">{{ task.priority | titlecase }} Priority
+        <span *ngFor="let p of task.people">- {{ p.name | titlecase }} </span>
+      </span>
     </td>
     <td class="right">
-      <span *ngIf="task.completed" data-status="true">{{ task.due | date : "dd MMM yyyy" }}</span>
-      <span *ngIf="!task.completed">{{ task.due | date : "dd MMM yyyy" }}</span>
+      <span [ngClass]="{'completed': task.completed}">{{ task.due | date : "dd MMM yyyy" }}</span>
     </td>
   </tr>
 </table>

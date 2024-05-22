@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Task } from '../models/task';
 import { Subject } from 'rxjs';
 import { greaterThanToday } from '../validators/custom-validators';
@@ -31,7 +31,8 @@ export class AddTaskComponent implements OnInit, OnChanges {
     this.taskForm = this.fb.group({
       description: this.fb.control('', [Validators.required, Validators.minLength(5)]),
       priority: this.fb.control('', [Validators.required]),
-      due: this.fb.control(new Date(), [Validators.required, greaterThanToday])
+      due: this.fb.control(new Date(), [Validators.required, greaterThanToday]),
+      people: this.fb.array([this.fb.group({ name: '' })])
     })
   }
 
@@ -44,6 +45,7 @@ export class AddTaskComponent implements OnInit, OnChanges {
 
   onSubmit() {
     if (this.taskForm.valid) {
+      console.log(this.taskForm)
       this.taskSubmit.emit(this.taskForm.value);
       this.taskForm.reset();
       this.editMode = false
@@ -57,6 +59,14 @@ export class AddTaskComponent implements OnInit, OnChanges {
     this.cancelEdit.emit();
     this.taskForm.reset();
     this.editMode = false
+  }
+
+  get people() {
+    return this.taskForm.get('people') as FormArray;
+  }
+  
+  addPeople() {
+    this.people.push(this.fb.group({ name: '' }));
   }
 
 }
