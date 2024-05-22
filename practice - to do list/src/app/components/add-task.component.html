@@ -33,29 +33,23 @@
         </mat-radio-group>
     </div>
 
-    <!-- <div formArrayName="people">
-        <td><button type="button" mat-flat-button color="accent" (click)="addPeople()">+ People</button></td>
-        <td>
-            <tr *ngFor="let p of people.controls; let i=index">
-                {{i+1}} ) <input id="p-{{ i }}" type="text" formControlName="i">
-            </tr>
-        </td>
-    </div> -->
-
     <div formArrayName="people">
-        <button type="button" mat-flat-button color="accent" (click)="addPeople()">+ People</button>
-        <div *ngFor="let person of people.controls; let i=index" [formGroupName]="i">
-            <label for="p-{{ i }}">Person {{ i + 1 }}</label>
-            <input id="p-{{ i }}" type="text" formControlName="name">
+        <div *ngFor="let person of people.controls; let i=index">
+          <label for="p-{{ i }}">Person {{ i + 1 }}: </label>
+          <input id="p-{{ i }}" type="text" [formControlName]="i">
+          <button type="button" (click)="removePerson(i)">X</button>
         </div>
     </div>
 
     <br>
     <div *ngIf="!editMode">
         <button mat-flat-button color="primary" type="submit">Add Task</button>
+        <button type="button" mat-flat-button color="accent" (click)="addPerson()">+ Person</button>
+
     </div>
     <div *ngIf="editMode">
-        <button mat-flat-button color="primary" type="submit">Update Task</button>
+        <button mat-flat-button color="primary" type="submit">Update</button>
+        <button type="button" mat-flat-button color="accent" (click)="addPerson()">+ Person</button>
         <button mat-flat-button color="warn" type="button" (click)="cancelUpdate()">Cancel</button>
     </div>
 

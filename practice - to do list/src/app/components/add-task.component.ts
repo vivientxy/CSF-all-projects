@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Task } from '../models/task';
-import { Subject } from 'rxjs';
 import { greaterThanToday } from '../validators/custom-validators';
 
 @Component({
@@ -32,20 +31,33 @@ export class AddTaskComponent implements OnInit, OnChanges {
       description: this.fb.control('', [Validators.required, Validators.minLength(5)]),
       priority: this.fb.control('', [Validators.required]),
       due: this.fb.control(new Date(), [Validators.required, greaterThanToday]),
-      people: this.fb.array([this.fb.group({ name: '' })])
+      people: this.fb.array([])
     })
   }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['task'] && this.task) {
+      // ensure there's a correct number of formArray fields
+      this.people.clear();
+      for (let index = 0; index < this.task.people.length; index++) {
+        this.addPerson()
+      }
       this.taskForm.patchValue(this.task);
-      this.editMode = true
+      this.editMode = true;
     }
   }
 
   onSubmit() {
     if (this.taskForm.valid) {
-      console.log(this.taskForm)
+      // remove all blank persons
+      for (let index = 0; index < this.people.length; index++) {
+        let name : string = this.people.at(index).value;
+        if (name.trim().length == 0) {
+          this.people.removeAt(index)
+          index --
+        }
+      }
+
       this.taskSubmit.emit(this.taskForm.value);
       this.taskForm.reset();
       this.editMode = false
@@ -65,8 +77,12 @@ export class AddTaskComponent implements OnInit, OnChanges {
     return this.taskForm.get('people') as FormArray;
   }
   
-  addPeople() {
-    this.people.push(this.fb.group({ name: '' }));
+  addPerson() {
+    this.people.push(this.fb.control(''));
+  }
+
+  removePerson(idx: number) {
+    this.people.removeAt(idx)
   }
 
 }

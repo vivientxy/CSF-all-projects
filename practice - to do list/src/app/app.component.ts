@@ -11,8 +11,9 @@ export class AppComponent {
   title = 'todolist';
 
   tasks: Task[] = [
-    new Task('hello','low',new Date(), [{name:'amy'},{name:'brian'},{name:'cheri'}]), 
-    new Task('konnichiwa','medium',new Date(), [])
+    // new Task('hello','low',new Date(), [{name:'amy'},{name:'brian'},{name:'cheri'}]), 
+    new Task('hello','low',new Date(),['amy','brian','cheri']), 
+    new Task('konnichiwa','medium',new Date(),[])
   ];
   
   selectedTask: Task | null = null;
