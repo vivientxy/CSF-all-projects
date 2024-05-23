@@ -1,0 +1,7 @@
+<app-search 
+    (weather)="displayWeather($event)"
+></app-search>
+
+<app-display
+    [childWeather]="parentWeather"
+></app-display>

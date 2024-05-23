@@ -1,0 +1,5 @@
+<div *ngIf="childWeather.icon != null">
+  <h1>Weather for {{childWeather.city | titlecase}}:</h1>
+  <img [src]="childWeather.icon" alt="image" />
+  <div>{{childWeather.main}} - {{childWeather.description}}</div>
+</div>
