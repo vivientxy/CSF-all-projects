@@ -1,0 +1,17 @@
+
+<h2>Poloar Bear</h2>
+
+<div>
+  <img [src]="image" width="400" [routerLink]="['/']">
+</div>
+
+<h3>Subscribe to newsletter</h3>
+<form [formGroup]="form" (submit)="subscribe()">
+  <label for="email">Your email</label>
+  <input type="email" size="30" placeholder="A valid email" formControlName="email">
+  <button type="submit">Subscribe</button>
+</form>
+
+Invalid: {{form.invalid}}
+Pristine: {{form.pristine}}
+Dirty: {{form.dirty}}

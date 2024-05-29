@@ -1,0 +1,23 @@
+<h1>My SPA</h1>
+
+<h2>
+  <a [routerLink]="['/cat']">Cat</a>
+
+  <button type="button" style="margin-left: 5px;" (click)="bigCat()">
+    Big Cat
+  </button>
+
+  <button type="button" style="margin-left: 5px;" (click)="polarbear()">
+    Polar Bear
+  </button>
+
+  @for (breed of dogBreeds; track $index) {
+    <a [routerLink]="['/dog', breed]" style="margin-left: 5px;">
+      {{ breed | titlecase }}
+    </a>
+  }
+</h2>
+
+<div class="box">
+  <router-outlet></router-outlet>
+</div>

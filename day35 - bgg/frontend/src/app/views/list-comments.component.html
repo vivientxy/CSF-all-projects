@@ -1,0 +1,9 @@
+<div *ngIf="gameP$ | async as game">
+    <h1>{{game.name}}</h1>
+    <img [src]="game.image">
+    Game Id: {{game.gameId}}
+</div>
+
+<div>
+
+</div>

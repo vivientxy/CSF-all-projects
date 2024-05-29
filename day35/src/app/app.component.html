@@ -1,0 +1,25 @@
+<h1>My SPA</h1>
+
+<h2>
+  <!-- routerLink is a directive that RouterModule adds -->
+  <a [routerLink]="['/cat']">Cat</a>
+
+  <button type="button" style="margin-left: 5px;" (click)="bigCat()">
+    Big Cat
+  </button>
+
+  <button type="button" style="margin-left: 5px;" (click)="polarBear()">
+    Polar Bear
+  </button>
+
+  @for (breed of dogBreeds; track $index) {
+    <a [routerLink]="['/dog', breed]" style="margin-left: 5px;">
+      {{breed | titlecase}}
+    </a>
+  }
+</h2>
+
+<div class="box">
+  <!-- placeholder for component -->
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,14 @@
+<div class="split">
+  <h2>List of Projects</h2>
+  <div class="split">
+    <button type="button">Persist</button>
+    <button type="button" [routerLink]="['/task']">Add Project</button>
+  </div>
+</div>
+
+<hr>
+
+<h4 *ngFor="let p of projectInfo">
+  {{ p.projectName | uppercase }} ({{ p.taskCount }})
+  <button type="button" (click)="deleteProject(p.id)">X</button>
+</h4>
