@@ -7,6 +7,8 @@ import { TaskComponent } from './views/task.component';
 import {RouterModule, Routes} from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
 import { ProjectRepository } from './project.repository';
+import { HttpClientModule } from '@angular/common/http';
+import { ProjectService } from './project.service';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent },
@@ -21,9 +23,10 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule, ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
-  providers: [ProjectRepository],
+  providers: [ProjectRepository, ProjectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

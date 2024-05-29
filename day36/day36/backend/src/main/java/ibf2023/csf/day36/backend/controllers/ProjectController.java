@@ -11,19 +11,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import jakarta.json.Json;
-import jakarta.json.JsonObject;
+import jakarta.json.JsonArray;
 import jakarta.json.JsonReader;
 
 @Controller
 @RequestMapping(path="/api", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ProjectController {
 
-	@PostMapping(path="/project", consumes = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(path="/projects", consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public ResponseEntity<String> postProject(@RequestBody String payload) {
 		JsonReader reader = Json.createReader(new StringReader(payload));
-		JsonObject project = reader.readObject();
-		System.out.printf(">>> project: %s\n", project.toString());
+		JsonArray projects = reader.readArray();
+		System.out.printf(">>> project: %s\n", projects.toString());
 
 		return ResponseEntity.ok("{}");
 	}
