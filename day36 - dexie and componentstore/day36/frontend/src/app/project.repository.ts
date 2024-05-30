@@ -27,5 +27,4 @@ export class ProjectRepository extends Dexie {
                 return projects.length
             })
     }
-
 }

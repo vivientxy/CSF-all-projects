@@ -1,0 +1,22 @@
+<h2>Search term: <code>{{q}}</code></h2>
+
+<div>
+    <button type="button" (click)="save()">Save</button>
+    <button type="button" [routerLink]="['/']">Back</button>
+</div>
+
+<hr>
+
+<div *ngIf="result$ | async as results">
+
+    <div *ngIf="results.urls.length > 0; else noResult">
+        <picture *ngFor="let url of results.urls">
+            <img [src]="url">
+        </picture>
+    </div>
+    
+</div>
+
+<ng-template #noResult>
+    <h2>No Gifs found</h2>
+</ng-template>

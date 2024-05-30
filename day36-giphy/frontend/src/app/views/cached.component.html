@@ -1,0 +1,15 @@
+<h2>Search terms: <code>{{q}}</code></h2>
+
+<div>
+    <button type="button" [routerLink]="['/']">Back</button>
+</div>
+
+<div *ngIf="result$ | async as result">
+
+    <div *ngIf="result.urls.length > 0">
+        <picture *ngFor="let url of result.urls">
+            <img [src]="url">
+        </picture>
+    </div>
+    
+</div>

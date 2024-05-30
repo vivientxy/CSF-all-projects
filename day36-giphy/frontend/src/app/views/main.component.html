@@ -1,0 +1,16 @@
+<h2>Search</h2>
+
+<form [formGroup]="searchForm" (submit)="search()">
+    <input type="text" size="30" placeholder="Your search term" formControlName="q">
+    <button type="submit" [disabled]="searchForm.invalid">Search</button>
+</form>
+
+<hr>
+
+@for (r of savedSearches$ | async; track $index) {
+    <a [routerLink]="['/cached', r]">
+        <h3>{{r}}</h3>
+    </a>
+} @empty {
+    <h2>No saved searches</h2>
+}
