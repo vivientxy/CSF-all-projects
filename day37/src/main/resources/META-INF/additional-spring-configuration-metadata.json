@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "spaces.key.secret",
+    "type": "java.lang.String",
+    "description": "A description for 'spaces.key.secret'"
+  },
+  {
+    "name": "spaces.key.access",
+    "type": "java.lang.String",
+    "description": "A description for 'spaces.key.access'"
+  }
+]}
