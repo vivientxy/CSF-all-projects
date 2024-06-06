@@ -1,5 +1,8 @@
 package tfip.day39_workshop.models;
 
+import jakarta.json.Json;
+import jakarta.json.JsonObject;
+import jakarta.json.JsonObjectBuilder;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,4 +16,23 @@ public class Employee {
     private String lastName;
     private String email;
     private String profileUrl;
+
+    public JsonObject toJson() {
+        return Json.createObjectBuilder()
+            .add("id", id)
+            .add("firstName", firstName)
+            .add("lastName", lastName)
+            .add("email", email)
+            .add("profileUrl", profileUrl)
+            .build();
+    }
+
+    public JsonObjectBuilder toJsonBuilder() {
+        return Json.createObjectBuilder()
+            .add("id", id)
+            .add("firstName", firstName)
+            .add("lastName", lastName)
+            .add("email", email)
+            .add("profileUrl", profileUrl);
+    }
 }

@@ -1,0 +1,20 @@
+<h1>Add Employee</h1>
+<hr>
+
+<form [formGroup]="form" enctype="multipart/form-data" (submit)="submit()">
+
+    <label for="firstName">First Name:</label>
+    <input type="text" formControlName="firstName">
+    <br>
+    <label for="lastName">Last Name:</label>
+    <input type="text" formControlName="lastName">
+    <br>
+    <label for="email">Email:</label>
+    <input type="text" formControlName="email">
+    <br>
+    <label for="profileUrl">Profile Picture:</label>
+    <input type="file" formControlName="profileUrl" accept="image/*" (change)="onFileSelected($event)">
+    <br>
+    <button type="submit">Add Employee</button>
+
+</form>
