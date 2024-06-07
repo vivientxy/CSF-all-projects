@@ -23,7 +23,7 @@ export class WeatherComponent implements OnInit {
   getWeatherData(city: string): Promise<Weather> {
     const params = new HttpParams()
       .set('q', city)
-      .set('appid', '27f9297d8b87e354ee0e15fc917ffcd1')
+      .set('appid', '')
       .set('units', 'metric');
 
     return firstValueFrom(
