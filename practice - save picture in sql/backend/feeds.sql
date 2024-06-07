@@ -1,0 +1,14 @@
+DROP DATABASE IF EXISTS feeds;
+
+CREATE DATABASE feeds;
+
+USE feeds;
+
+CREATE TABLE posts (
+    post_id VARCHAR(8) PRIMARY KEY,
+    comments MEDIUMTEXT,
+    picture MEDIUMBLOB
+);
+
+GRANT ALL PRIVILEGES ON feeds.* TO 'betty'@'%';
+FLUSH PRIVILEGES;

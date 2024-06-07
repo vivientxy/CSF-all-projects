@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="form-container">
+        <h1>Angular Form</h1>
+        <hr>
+        <br>
+        <form [formGroup]="form" (submit)="submit()">
+            <div class="form-group">
+                <label for="file">File</label>
+                <input type="file" formControlName="file" class="form-control" (change)="onFileSelected($event)" accept="image/*">
+            </div>
+
+            <div *ngIf="f['file'].invalid && f['file'].touched">
+                <div class="alert alert-danger">
+                    File is required
+                </div>
+            </div>
+
+            <br>
+            <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Submit</button>
+        </form>
+    </div>
+</div>
