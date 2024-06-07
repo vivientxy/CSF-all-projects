@@ -1,0 +1,11 @@
+<div>
+    <h4>{{city | titlecase}} <button type="button" [routerLink]="['/']">Back</button></h4>
+</div>
+
+<div>
+    <img [src]="weather.icon">
+    <br>
+    {{weather.main | titlecase}} | {{weather.description | titlecase}}
+    <br>
+    Feels like: {{weather.feelsLike}}°C
+</div>

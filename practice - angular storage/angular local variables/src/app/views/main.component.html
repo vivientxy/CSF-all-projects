@@ -1,0 +1,10 @@
+<table>
+    <tr *ngFor="let city of cities">
+        <td>
+            <a [routerLink]="['/', city]">{{city | titlecase}}</a>
+        </td>
+        <td>
+            <button type="button" (click)="deleteCity(city)">Delete</button>
+        </td>
+    </tr>
+</table>

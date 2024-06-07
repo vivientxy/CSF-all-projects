@@ -1,0 +1,13 @@
+<div>
+  <h3>
+    <form [formGroup]="form" (submit)="addCity()">
+      City:
+      <input type="text" formControlName="city">
+      <button type="submit">Add</button>  
+    </form>
+  </h3>
+</div>
+
+<div>
+  <router-outlet></router-outlet>
+</div>
